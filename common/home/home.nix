@@ -39,7 +39,7 @@
       statsmodels
       scikitlearn
     ]))
-
+    #test
     # installs libreoffice and spellcheck
     libreoffice-qt
     hunspell
