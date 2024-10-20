@@ -146,7 +146,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-
+  programs.ssh.startAgent = true;
 
 
   # Some programs need SUID wrappers, can be configured further or are

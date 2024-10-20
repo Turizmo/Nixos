@@ -9,8 +9,11 @@
          ];
     settings = {  
       "$wallpaper" = "bash -c 'swww img ~/Wallpaper/wallhaven.jpg --transition-step=20 && fetchWallhaven'";
-      input.kb_layout = "no";
-      monitor = ", preferred, auto, 1";
+      input = {
+        kb_layout = "no";
+        kb_options = "caps:swapescape";
+      };
+      monitor = ", 3440x1440, auto, 1";
       env = [
         "LIBGL_ALWAYS_SOFTWARE,1"		#needed for virtual machine
         "TERMINAL,alacritty"
@@ -56,7 +59,7 @@
         "$mod, F, exec, firefox"
         "$mod, C, killactive,"
         "$mod, W, exec, $wallpaper" # change the wallpaper
-        "$mod, N, ecec, alacritty -e 'cd /nixos && nvim" # Open configuration files for nixos
+        "$mod, N, exec, alacritty -e bash -c 'cd ~/nixos && nvim'" # Open configuration files for nixos
         ", Print, exec, grimblast copy area"
 
         # Move focus with mainMod + arrow keys

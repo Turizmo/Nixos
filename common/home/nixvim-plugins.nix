@@ -6,6 +6,9 @@
     nvim-tree = {  # Display a filetree in the left
       enable = true;
       openOnSetup = true;
+      filters = {
+         custom = [ ".git" ];
+       };
     };
     web-devicons.enable = true;  # Required for nvim-tree
 
