@@ -14,7 +14,7 @@
     };
 		hyprland = { # Tiling window manager
       url = "github:hyprwm/hyprland";
-            inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
 		};
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -22,14 +22,14 @@
     };
 		nixvim = { # Neovim editor configurable by nix syntax
 			url = "github:nix-community/nixvim";
-			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "nixpkgs"; 
     };
     stylix = { # Systemwide colorsstyles
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  # test
+
   outputs = { nixpkgs, home-manager, hyprland, nixvim, ... } @inputs: {
     nixosConfigurations = {
       # TODO please change the hostname to your own

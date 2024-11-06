@@ -15,6 +15,15 @@
   programs.obs-studio.enable = true;
   programs.ranger = {
     enable = true;
+    plugins = [
+      {
+        name = "ranger-fzf.py";
+        src = builtins.fetchGit {
+          url = "https://github.com/cjbassi/ranger-fzf.git";
+          rev = "a939633c146a98cd029ae0cc87b9b62cc7399bb2";
+        };
+      }
+    ];
     settings = {
       show_hidden = true;
     };
@@ -30,6 +39,8 @@
     kitty		
     lazygit
     wl-clipboard
+    clipnotify
+    inotify-tools
     # installs python with spesified packages
     (python311.withPackages (ps: with ps; [
       numpy # these two are
@@ -54,8 +65,12 @@
     copyq # Clipboard manager
     xfce.thunar  
     dolphin
-    ranger  # Terminal-based filebrowser
+    ranger  # Terminal-based filebrowser (can be replaced by cfile if i compile it)
+    nnn     # Terminal-based filebrowser 
     nerdfonts # Iconfonts for correct display of icons
+    cifs-utils # SMB shares
+    psmisc # utils
+    fzf # fuzzy finder
   ];
 
   fonts.fontconfig.enable = true;
