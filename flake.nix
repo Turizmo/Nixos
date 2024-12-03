@@ -2,7 +2,7 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/";
@@ -12,14 +12,14 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-		hyprland = { # Tiling window manager
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-		};
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+		# hyprland = { # Tiling window manager
+  #     url = "github:hyprwm/hyprland";
+  #     inputs.nixpkgs.follows = "nixpkgs";
+		# };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 		nixvim = { # Neovim editor configurable by nix syntax
 			url = "github:nix-community/nixvim";
 			inputs.nixpkgs.follows = "nixpkgs"; 
@@ -30,7 +30,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, nixvim, ... } @inputs: {
+  outputs = { nixpkgs, home-manager,/*  hyprland, */ nixvim, ... } @inputs: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       nixos = nixpkgs.lib.nixosSystem {

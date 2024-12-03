@@ -62,7 +62,7 @@
   #  };
   #	services.xserver.displayManager.gdm.enable = true;
 
-   services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -70,13 +70,13 @@
 
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    # xwayland.enable = true;
     # set the flake package
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    #  portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-  security.pam.services.hyprlock = {};
+    security.pam.services.hyprlock = {};
 
   stylix = {
     enable = true;
@@ -148,6 +148,7 @@
 
   programs.ssh.startAgent = true;
 
+  nix.settings.download-buffer-size = 104857600; # set download buffer to 100MB, errors can occur while building with the default buffer size
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

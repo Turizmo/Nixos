@@ -11,7 +11,7 @@
   programs.alacritty.enable = true;
   programs.waybar.enable = true;
   services.swaync.enable = true;
-  programs.hyprlock.enable = true;
+  #programs.hyprlock.enable = true;
   programs.obs-studio.enable = true;
   programs.ranger = {
     enable = true;

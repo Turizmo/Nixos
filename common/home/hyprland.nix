@@ -8,40 +8,40 @@
       # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
          ];
     settings = {  
-      #  "$wallpaper" = "bash -c 'swww img ~/Wallpaper/wallhaven.jpg --transition-step=20 && fetchWallhaven'";
-      # input = {
-      #   kb_layout = "no";
-      #   kb_options = "caps:swapescape";
-      # };
-      # monitor = ", 3440x1440, auto, 1";
-      # env = [
-      #   "LIBGL_ALWAYS_SOFTWARE,1"		#needed for virtual machine
-      #   "TERMINAL,alacritty"
-      # ];
-      # exec-once = [
-      #   "$wallpaper"
-      #   "waybar"
-      # ];
-      # animation = [
-      #   "workspaces, 1, 2, default, slidevert"
-      #   "specialWorkspace, 1, 2, default, fade"
-      # ]; 
-      # general = {
-      #   gaps_in = 0;  # set gaps between windows. 
-      #   gaps_out = 20;  # set gaps to screen edge, but disabled on normal workspaces in the workspace rules
-      #   resize_on_border = true;    
-      # };
-      # dwindle = {
-      #   force_split = 2; # New windows appear to the right or bottom
-      #   preserve_split = true;
-      # };
-      # decoration = {
-      #   rounding = 20;  # General rounding, but rounding is disabled for normal workspaces in the workspace rules
-      #   dim_special = 0.4;
-      # };
-      # workspace = [ # Workspace rules
-      #   "s[false], gapsout:0, decorate:false, rounding:false" # Disables gapsout and rounding on nonspesial workspaces
-      # ];
+       "$wallpaper" = "bash -c 'swww img ~/Wallpaper/wallhaven.jpg --transition-step=20 && fetchWallhaven'";
+      input = {
+        kb_layout = "no";
+        kb_options = "caps:swapescape";
+      };
+      monitor = ", 3440x1440, auto, 1";
+      env = [
+        "LIBGL_ALWAYS_SOFTWARE,1"		#needed for virtual machine
+        "TERMINAL,alacritty"
+      ];
+      exec-once = [
+        "$wallpaper"
+        "waybar"
+      ];
+      animation = [
+        "workspaces, 1, 2, default, slidevert"
+        "specialWorkspace, 1, 2, default, fade"
+      ]; 
+      general = {
+        gaps_in = 0;  # set gaps between windows. 
+        gaps_out = 20;  # set gaps to screen edge, but disabled on normal workspaces in the workspace rules
+        resize_on_border = true;    
+      };
+      dwindle = {
+        force_split = 2; # New windows appear to the right or bottom
+        preserve_split = true;
+      };
+      decoration = {
+        rounding = 20;  # General rounding, but rounding is disabled for normal workspaces in the workspace rules
+        dim_special = 0.4;
+      };
+      workspace = [ # Workspace rules
+        "s[false], gapsout:0, decorate:false, rounding:false" # Disables gapsout and rounding on nonspesial workspaces
+      ];
       "$mod" = "SUPER";
 
       binde = [
