@@ -48,7 +48,7 @@
       jupyterlab
       pandas
       statsmodels
-      scikitlearn
+      #scikitlearn
     ]))
     #test
     # installs libreoffice and spellcheck
