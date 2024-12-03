@@ -2,24 +2,29 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+      #  rev = "";
+    }; w
     # home-manager, used for managing user configuration
     home-manager = {
-      url = "github:nix-community/home-manager/";
+      url = "github:nix-community/home-manager/"; 
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with
       # the `inputs.nixpkgs` of the current flake,
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
-		# hyprland = { # Tiling window manager
-  #     url = "github:hyprwm/hyprland";
-  #     inputs.nixpkgs.follows = "nixpkgs";
-		# };
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
+		hyprland = { # Tiling window manager
+      
+      # url = "github:hyprwm/hyprland/5963970"; # spesify a commit since hyprland often breaks
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+		};
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 		nixvim = { # Neovim editor configurable by nix syntax
 			url = "github:nix-community/nixvim";
 			inputs.nixpkgs.follows = "nixpkgs"; 

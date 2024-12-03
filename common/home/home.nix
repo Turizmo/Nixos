@@ -67,7 +67,7 @@
     dolphin
     ranger  # Terminal-based filebrowser (can be replaced by cfile if i compile it)
     nnn     # Terminal-based filebrowser 
-    #   nerd-fonts # Iconfonts for correct display of icons
+    nerdfonts # Iconfont for correct display of icons
     cifs-utils # SMB shares
     psmisc # utils
     fzf # fuzzy finder
