@@ -36,7 +36,7 @@
         preserve_split = true;
       };
       decoration = {
-        rounding = 20;  # General rounding, but rounding is disabled for normal workspaces in the workspace rules
+        rounding = 21;  # General rounding, but rounding is disabled for normal workspaces in the workspace rules
         dim_special = 0.4;
       };
       workspace = [ # Workspace rules

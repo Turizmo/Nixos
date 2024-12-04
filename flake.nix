@@ -1,41 +1,24 @@
 {
   description = "NixOS configuration";
-
   inputs = {
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-      #  rev = "";
-    }; w
-    # home-manager, used for managing user configuration
-    home-manager = {
-      url = "github:nix-community/home-manager/"; 
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11"; # Change this version to upgrade the system, there is a new release every 6 months. Expect that the configuration may break when upgrading. Remember to also change the release of the other inputs below.
+    unstable.url = "github:nixos/nixpkgs/nixos-unstable"; # Use the unstable input instead of nixpkgs to fetch more up to date packages. Nixos-unstable breaks hyprland often, so it should not be used on system or critical packages. 
+
+    home-manager = { # Used for managing user configuration 
+      url = "github:nix-community/home-manager/release-24.11"; # Should have the same release number as nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-		hyprland = { # Tiling window manager
-      
-      # url = "github:hyprwm/hyprland/5963970"; # spesify a commit since hyprland often breaks
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-		};
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
     };
 		nixvim = { # Neovim editor configurable by nix syntax
-			url = "github:nix-community/nixvim";
+			url = "github:nix-community/nixvim/nixos-24.11"; # Should have the same release number as nixpkgs.
 			inputs.nixpkgs.follows = "nixpkgs"; 
     };
     stylix = { # Systemwide colorsstyles
-      url = "github:danth/stylix";
+      url = "github:danth/stylix/release-24.11"; # Should have the same release number as nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager,/*  hyprland, */ nixvim, ... } @inputs: {
+  outputs = { nixpkgs, unstable, home-manager, nixvim, ... } @inputs: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
       nixos = nixpkgs.lib.nixosSystem {
