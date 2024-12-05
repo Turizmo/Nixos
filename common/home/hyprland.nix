@@ -19,8 +19,10 @@
         "TERMINAL,alacritty"
       ];
       exec-once = [
+        "swww-daemon"
         "$wallpaper"
         "waybar"
+        
       ];
       animation = [
         "workspaces, 1, 2, default, slidevert"

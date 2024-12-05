@@ -11,7 +11,7 @@ let
 seed=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 8)
 echo "$seed"
 
-search_url="https://wallhaven.cc/search?categories=100&purity=100&atleast=3440x1440&sorting=random&order=desc&ai_art_filter=1&seed=$seed&page=1"
+search_url="https://wallhaven.cc/search?categories=101&purity=110&atleast=3440x1440&sorting=random&order=asc&colors=663399&ai_art_filter=0&seed=$seed&page=1"
 pattern="https://wallhaven.cc/w/[a-z0-9]{6}"
 
 # Fetch the webpage content
