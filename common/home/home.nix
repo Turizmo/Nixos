@@ -36,11 +36,12 @@
 
   home.packages = with pkgs; [
     # xclip # Makes copy paste more reliable
-    kitty		
-    lazygit
-    wl-clipboard
-    clipnotify
-    inotify-tools
+    ncdu # Disk usage analazyer
+    kitty	# Default terminal emulator	
+    lazygit # Graphical interface for git
+    wl-clipboard # Clipboard manager for wayland
+    clipnotify # Notify when clipboard changes
+    inotify-tools # Notify when file changes
     # installs python with spesified packages
     (python311.withPackages (ps: with ps; [
       numpy # these two are

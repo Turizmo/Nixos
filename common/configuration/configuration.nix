@@ -42,7 +42,7 @@
 
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-   home-manager.backupFileExtension = "backup1";
+   home-manager.backupFileExtension = "backup2";
 
    services.xserver.enable = true; # test autoscaling vm
   #  services.xserver.videoDrivers = [ "vmware" ];
