@@ -14,6 +14,15 @@
         transparent_background = true;
       };
     };
+    # colorschemes.rose-pine = {
+    #   enable = true;
+    #   settings = {
+    #     styles = {
+    #       transparency = true;
+    #     };
+    #   };
+    # };
+   # colorschemes.nord.enable = true;
     opts = {
       number = true;
       relativenumber = true;

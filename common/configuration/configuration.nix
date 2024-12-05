@@ -89,6 +89,9 @@
       popups = 0.9;
       terminal = 0.9;
     };
+    targets = {
+      nixvim.enable = false;
+    };
   };
 
 	# List packages installed in system profile. To search, run:
