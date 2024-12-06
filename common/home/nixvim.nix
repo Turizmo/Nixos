@@ -5,6 +5,8 @@
     ./nixvim-plugins.nix # Install plugins for neovim
   ];
 
+  stylix.targets.nixvim.enable = false; # Disable stylix for nixvim so that nixvim can use a proper theme
+
   programs.nixvim = {
     enable = true;
     colorschemes.catppuccin = { # theme must be set here in addition to stylix, otherwise syntax highlighting does not work properly

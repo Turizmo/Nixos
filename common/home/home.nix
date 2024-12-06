@@ -5,7 +5,8 @@
     ./hyprland.nix # Install and configure hyprland tiling window manager and other desktop widgets compatible with hyprland.
     ./nixvim.nix	# Install and configure neovim editor
     ./get-wallpaper.nix # Fetch wallpaper from wallhaven
-  ];     
+    ./shared-clipboard.nix
+  ];      
 
   programs.wofi.enable = true;
   programs.alacritty.enable = true;
@@ -88,5 +89,5 @@
   # NB! Never share the private key(~/.ssh/id_rsa)
   # Add the private key to the ssh agent by running this command in the terminal: ssh-add ~/.ssh/id_rsa
   # The first push must be done in the terminal afterwards you can use lazygit
-  stylix.targets.nixvim.enable = false;
+  
 }
