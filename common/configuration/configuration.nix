@@ -180,12 +180,15 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
-    virtualisation.vmware.guest.enable = true;
-  #  fileSystems."/mnt/hgfs" = {
-  #    device = ".host:/OneDrive";
-  #    fsType = "fuse.vmhgfs-fuse";
-  #    options = [ "allow_other" "auto_mount" "uid=1000" "gid=100" "defaults" ]; 
-  #  };  
+  virtualisation.vmware.guest.enable = true; # Installs vmware tools
+
+  # mount vmware shared folder at boot
+  system.fsPackages = [ pkgs.open-vm-tools ];
+  fileSystems."/mnt/hgfs" = {
+   device = ".host:/OneDrive";
+   fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+   options = [ "umask=22" "allow_other" "auto_unmount" "uid=1000" "gid=100" "defaults" ]; 
+  };  
   
   environment.variables = {
 	  WLR_RENDERER_ALLOW_SOFTWARE = "1";
@@ -195,7 +198,7 @@
     XDG_CURRENT_DESKTOP = "Hyprland";
     XDG_SESSION_DESKTOP = "Hyprland";
     GTK_USE_PORTAL = "Hyprland";
-    NIXOS_XDG_OPEN_USE_PORTAL = "1";
+    NIXOS_XDG_OPEN_USE_PORTAL = "1"; 
 	};
 
 }
