@@ -36,7 +36,7 @@
   home.homeDirectory = "/home/nixos";
 
   home.packages = with pkgs; [
-    # xclip # Makes copy paste more reliable
+    xclip # Makes copy paste more reliable
     ncdu # Disk usage analazyer
     kitty	# Default terminal emulator	
     lazygit # Graphical interface for git

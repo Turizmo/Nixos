@@ -2,8 +2,8 @@
 
  
 let
-  shared-clipboard = pkgs.writeShellApplication {
-    name = "sClipboard";
+  vth-clipboard = pkgs.writeShellApplication {
+    name = "vthClipboard";
     runtimeInputs = [
       pkgs.wl-clipboard
       pkgs.clipnotify
@@ -16,17 +16,18 @@ let
   #   echo "Change detected in $directory: $events on $filename"
   #   done
 
-  output_file="$1/vm_clipboard"
+  output_file="$1/vth_clipboard.txt"
 
   while clipnotify; do
-    xclip -selection clipboard -o | grep -a '.*' > "$output_file"
+    
+    wl-paste --type text/plain > "$output_file" 
     echo "Clipboard saved to file"
   done
    '';
   };
 in {
   home.packages = [
-    shared-clipboard  
+    vth-clipboard  
   ];
   # test2
 } 
