@@ -1,27 +1,31 @@
 { config, pkgs, lib, ...}:
 
- 
 let
   htv-clipboard = pkgs.writeShellApplication {
     name = "htvClipboard";
     runtimeInputs = [
       pkgs.wl-clipboard
-      pkgs.clipnotify
-      pkgs.inotify-tools
-      ];
+    ];
     text = ''
-  #!/usr/bin/env bash
-  inotifywait -m -e modify,create "$1" |
-  while read -r directory events filename; do
-    wl-copy < "$1/htv_clipboard.txt"
-    echo "Change detected in $directory: $events on $filename"
-  done
+      #!/usr/bin/env bash
 
-   '';
+      FILE="$1/htv_clipboard.txt"
+      LAST_MODIFIED=$(stat -c %Y "$FILE")
+
+      while :; do
+        sleep 0.2
+        NEW_MODIFIED=$(stat -c %Y "$FILE")
+
+        if [ "$NEW_MODIFIED" -ne "$LAST_MODIFIED" ]; then
+          wl-copy < "$FILE"
+          echo "Change detected in $FILE"
+          LAST_MODIFIED=$NEW_MODIFIED
+        fi
+      done
+    '';
   };
 in {
   home.packages = [
     htv-clipboard  
   ];
-  # test2
-} 
+}
