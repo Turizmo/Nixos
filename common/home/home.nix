@@ -73,13 +73,14 @@
     nnn     # Terminal-based filebrowser 
     yazi    # Terminal-based filebrowser
     openscad-unstable # parametric 3d modeler
-    megasync # Cloud sync with MEGA drive
+    megacmd # Cloud sync with MEGA drive
     # megatools # Cloud sync with MEGA drive
     nerdfonts # Iconfont for correct display of icons
     cifs-utils # SMB shares
     psmisc # utils
     fzf # fuzzy finder
     lsof # Tool to list open files
+    orca-slicer # Slices files for 3D-printing 
   ];
 
   fonts.fontconfig.enable = true;
