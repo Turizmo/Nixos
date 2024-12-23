@@ -44,7 +44,7 @@
 
    home-manager.backupFileExtension = "backup2";
 
-   services.xserver.enable = true; # test autoscaling vm
+  #  services.xserver.enable = true; # test autoscaling vm
   #  services.xserver.videoDrivers = [ "vmware" ];
   #  systemd.user.services.xdg-desktop-portal = {
   #    enable = true;
@@ -70,7 +70,7 @@
 
   programs.hyprland = {
     enable = true;
-    # xwayland.enable = true;
+    xwayland.enable = true;
     # set the flake package
     # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     # make sure to also set the portal package, so that they are in sync
@@ -97,8 +97,11 @@
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
-	gtkmm3 
-  pciutils # information about PCI devices 
+	  gtkmm3 
+    pciutils  # information about PCI devices 
+    usbutils  # Automount usb drive
+    udiskie   # Automount usb drive
+    udisks   # Automount usb drive
     qt5.qtwayland
     qt6.qtwayland
 	];
@@ -153,6 +156,13 @@
 
   nix.settings.download-buffer-size = 104857600; # set download buffer to 100MB, errors can occur while building with the default buffer size
 
+
+  # Enable automounting if drives
+  services = {
+    gvfs.enable = true;
+    udisks2.enable = true;
+    devmon.enable = true;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -190,15 +200,15 @@
    options = [ "umask=22" "allow_other" "auto_unmount" "uid=1000" "gid=100" "defaults" ]; 
   };  
   
-  environment.variables = {
-	  WLR_RENDERER_ALLOW_SOFTWARE = "1";
-    XDG_SESSION_TYPE = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    GTK_USE_PORTAL = "Hyprland";
-    NIXOS_XDG_OPEN_USE_PORTAL = "1"; 
-	};
+ #  environment.variables = {
+	#   WLR_RENDERER_ALLOW_SOFTWARE = "1";
+ #    XDG_SESSION_TYPE = "wayland";
+ #    SDL_VIDEODRIVER = "wayland";
+ #    CLUTTER_BACKEND = "wayland";
+ #    XDG_CURRENT_DESKTOP = "Hyprland";
+ #    XDG_SESSION_DESKTOP = "Hyprland";
+ #    GTK_USE_PORTAL = "Hyprland";
+ #    NIXOS_XDG_OPEN_USE_PORTAL = "1"; 
+	# };
 
 }

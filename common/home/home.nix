@@ -66,14 +66,20 @@
     konsole
     wlr-randr 
     copyq # Clipboard manager
-    xfce.thunar  
+    xfce.thunar 
+    xterm
     dolphin
     ranger  # Terminal-based filebrowser (can be replaced by cfile if i compile it)
     nnn     # Terminal-based filebrowser 
+    yazi    # Terminal-based filebrowser
+    openscad-unstable # parametric 3d modeler
+    megasync # Cloud sync with MEGA drive
+    # megatools # Cloud sync with MEGA drive
     nerdfonts # Iconfont for correct display of icons
     cifs-utils # SMB shares
     psmisc # utils
     fzf # fuzzy finder
+    lsof # Tool to list open files
   ];
 
   fonts.fontconfig.enable = true;
