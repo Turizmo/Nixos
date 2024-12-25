@@ -44,8 +44,13 @@
 
    home-manager.backupFileExtension = "backup2";
 
-  #  services.xserver.enable = true; # test autoscaling vm
-  #  services.xserver.videoDrivers = [ "vmware" ];
+   services.xserver = {
+    enable = true; 
+    videoDrivers = [ "vmware" ];
+    windowManager.qtile = {
+      enable = true;
+    };
+  };
   #  systemd.user.services.xdg-desktop-portal = {
   #    enable = true;
   #    # serviceConfig = {
