@@ -45,14 +45,14 @@
     clipnotify # Notify when clipboard changes
     inotify-tools # Notify when file changes
     # installs python with spesified packages
-    (python311.withPackages (ps: with ps; [
-      numpy # these two are
-      scipy # probably redundant to pandas
-      jupyterlab
-      pandas
-      statsmodels
-      #scikitlearn
-    ]))
+    # (python311.withPackages (ps: with ps; [
+    #   numpy # these two are
+    #   scipy # probably redundant to pandas
+    #   jupyterlab
+    #   pandas
+    #   statsmodels
+    #   #scikitlearn
+    # ]))
     #test
     # installs libreoffice and spellcheck
     libreoffice-qt
