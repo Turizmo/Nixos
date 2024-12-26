@@ -6,12 +6,6 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
     # Enable networking
     networking.networkmanager.enable = true;
@@ -63,22 +57,6 @@
   #    wantedBy = [ "default.target"];
   #  };
   #	services.xserver.displayManager.gdm.enable = true;
-
-  # services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    # set the flake package
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    # make sure to also set the portal package, so that they are in sync
-    #  portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
-    security.pam.services.hyprlock = {};
 
   stylix = {
     enable = true;
@@ -159,7 +137,7 @@
   nix.settings.download-buffer-size = 104857600; # set download buffer to 100MB, errors can occur while building with the default buffer size
 
 
-  # Enable automounting if drives
+  # Enable automounting of USB drives
   services = {
     gvfs.enable = true;
     udisks2.enable = true;
@@ -193,15 +171,5 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
   
- #  environment.variables = {
-	#   WLR_RENDERER_ALLOW_SOFTWARE = "1";
- #    XDG_SESSION_TYPE = "wayland";
- #    SDL_VIDEODRIVER = "wayland";
- #    CLUTTER_BACKEND = "wayland";
- #    XDG_CURRENT_DESKTOP = "Hyprland";
- #    XDG_SESSION_DESKTOP = "Hyprland";
- #    GTK_USE_PORTAL = "Hyprland";
- #    NIXOS_XDG_OPEN_USE_PORTAL = "1"; 
-	# };
 
 }
