@@ -20,19 +20,19 @@
 
   outputs = { self, nixpkgs, unstable, home-manager, nixvim, stylix, ... } @ inputs: 
     let
-      mkSystem = mySystem: myHostName: myUserName: nixpkgs.lib.nixosSystem {
+      mkSystem = {mySystem, myHostName, myUserName}: nixpkgs.lib.nixosSystem {
           system = "x86_64-linux"; 
           specialArgs = { inherit inputs; };
           modules = [
             { networking.hostName = myHostName; }
-            ./vmhyprland/configuration/configuration.nix
+            ./${myHostName}/configuration/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];
-              home-manager.users.nixos = import ./vmhyprland/home/home.nix;
+              home-manager.users.${myUserName} = import ./${myHostName}/home/home.nix;
               home-manager.users.root = import ./common/home/sudo.nix;
             }
             inputs.stylix.nixosModules.stylix
@@ -40,7 +40,11 @@
         };
     in {
       nixosConfigurations = {
-        vmhyprland = mkSystem "x86_64-linux" "vmhyprland" "nixos";
+        vmhyprland = mkSystem {
+          mySystem = "x86_64-linux";
+          myHostName = "vmhyprland";
+          myUserName = "nixos";
+        };
       };
     };
 
