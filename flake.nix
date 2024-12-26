@@ -21,7 +21,7 @@
   outputs = { self, nixpkgs, unstable, home-manager, nixvim, stylix, ... } @ inputs: 
     let
       mkSystem = {mySystem, myHostName, myUserName}: nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux"; 
+          system = mySystem; 
           specialArgs = { inherit inputs; };
           modules = [
             { networking.hostName = myHostName; }
