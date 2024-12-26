@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {	
-  #configure micro
+  imports = [ 
+    ./nixvim.nix	# Install and configure neovim editor
+  ];
+    
+  #Enable and configure micro editor
   programs.micro = {
     enable = true;
     settings = {
@@ -9,8 +13,10 @@
       "softwrap" = true;
     };
   };
-  
-  home.stateVersion = "24.05";
+ 
+
+  home.stateVersion = "24.05"; # Is set here because it must be defined for all home-manager users.
+
 }
 
   

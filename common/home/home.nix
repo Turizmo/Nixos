@@ -1,13 +1,16 @@
-{config, pkgs, lib, inputs, username, ... }:
+{config, pkgs, lib, inputs, myUserName, ... }:
 {	
   imports = [ 
     ./sudo.nix # Import configuration that is also used for sudo programs
     ./hyprland.nix # Install and configure hyprland tiling window manager and other desktop widgets compatible with hyprland.
-    ./nixvim.nix	# Install and configure neovim editor
     ./get-wallpaper.nix # Fetch wallpaper from wallhaven
     ./htv-clipboard.nix
     ./vth-clipboard.nix
-  ];      
+  ];
+
+  home.username = myUserName;
+  home.homeDirectory = "/home/${myUserName}";
+
 
   programs.wofi.enable = true;
   programs.alacritty.enable = true;
@@ -32,9 +35,6 @@
   };
 
   services.hyprpaper.enable = lib.mkForce false; # There is bug that in the hyprpaper service that enables it permanently if it has been enabled once on the system. This forces the service off. swww is used for setting wallpapers instead
-
-  home.username = "nixos";
-  home.homeDirectory = "/home/nixos";
 
   home.packages = with pkgs; [
     xclip # Makes copy paste more reliable
