@@ -42,23 +42,8 @@
   #     enable = true;
   #   };
   # };
-  #  systemd.user.services.xdg-desktop-portal = {
-  #    enable = true;
-  #    # serviceConfig = {
-  #      # ExecStart = "${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal";
-  #      # };
-  #    wantedBy = [ "default.target"];
-  #  };
-  #  systemd.user.services.xdg-desktop-portal-wlr= {
-  #    enable = true;
-  #    serviceConfig = {
-  #      ExecStart = "${pkgs.xdg-desktop-portal-wlr}/libexec/xdg-desktop-portal-wlr";
-  #     };
-  #    wantedBy = [ "default.target"];
-  #  };
-  #	services.xserver.displayManager.gdm.enable = true;
 
-  stylix = {
+   stylix = {
     enable = true;
     base16Scheme ="${pkgs.base16-schemes}/share/themes/rose-pine.yaml"; # Theme is also set in nixvim NB! not all themes are available in nixvim, so it can be difficult to find themes that are available both in base16-schemes and nixvim
     image = /home/nixos/Wallpaper/wallhaven.jpg;
@@ -77,13 +62,10 @@
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
-	  gtkmm3 
     pciutils  # information about PCI devices 
     usbutils  # Automount usb drive
     udiskie   # Automount usb drive
     udisks   # Automount usb drive
-    qt5.qtwayland
-    qt6.qtwayland
 	];
 
   # Configure console keymap
@@ -122,11 +104,7 @@
     ];
   };
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "nixos";
-
-  # Install firefox.
+   # Install firefox.
   programs.firefox.enable = true;
 
   # Allow unfree packages
@@ -162,14 +140,6 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
-  
+   
 
 }

@@ -22,7 +22,7 @@
     let
       mkSystem = {mySystem, myHostName, myUserName}: nixpkgs.lib.nixosSystem {
           system = mySystem; 
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs; inherit myUserName; };
           modules = [
             { networking.hostName = myHostName; }
             ./${myHostName}/configuration/configuration.nix
