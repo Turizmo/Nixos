@@ -35,14 +35,6 @@
 
    home-manager.backupFileExtension = "backup2";
 
-  #  services.xserver = {
-  #   enable = true; 
-  #   videoDrivers = [ "vmware" ];
-  #   windowManager.qtile = {
-  #     enable = true;
-  #   };
-  # };
-
    stylix = {
     enable = true;
     base16Scheme ="${pkgs.base16-schemes}/share/themes/rose-pine.yaml"; # Theme is also set in nixvim NB! not all themes are available in nixvim, so it can be difficult to find themes that are available both in base16-schemes and nixvim

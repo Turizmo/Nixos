@@ -45,6 +45,12 @@
           myHostName = "vmhyprland";
           myUserName = "nixos";
         };
+        vbqtile = mkSystem {
+          mySystem = "x86_64-linux";
+          myHostName = "vbqtile";
+          myUserName = "nixos";
+        };
+
       };
     };
 
