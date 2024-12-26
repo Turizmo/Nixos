@@ -2,84 +2,35 @@
 {	
   imports = [ 
     ./sudo.nix # Import configuration that is also used for sudo programs
-    ./hyprland.nix # Install and configure hyprland tiling window manager and other desktop widgets compatible with hyprland.
     ./get-wallpaper.nix # Fetch wallpaper from wallhaven
-    ./htv-clipboard.nix
-    ./vth-clipboard.nix
   ];
 
   home.username = myUserName;
   home.homeDirectory = "/home/${myUserName}";
 
 
-  programs.wofi.enable = true;
-  programs.alacritty.enable = true;
-  programs.waybar.enable = true;
-  services.swaync.enable = true;
-  #programs.hyprlock.enable = true;
-  programs.obs-studio.enable = true;
-  programs.ranger = {
-    enable = true;
-    plugins = [
-      {
-        name = "ranger-fzf.py";
-        src = builtins.fetchGit {
-          url = "https://github.com/cjbassi/ranger-fzf.git";
-          rev = "a939633c146a98cd029ae0cc87b9b62cc7399bb2";
-        };
-      }
-    ];
-    settings = {
-      show_hidden = true;
-    };
-  };
-
-  services.hyprpaper.enable = lib.mkForce false; # There is bug that in the hyprpaper service that enables it permanently if it has been enabled once on the system. This forces the service off. swww is used for setting wallpapers instead
 
   home.packages = with pkgs; [
-    xclip # Makes copy paste more reliable
+    # tools
     ncdu # Disk usage analazyer
-    kitty	# Default terminal emulator	
+    nerdfonts # Iconfont for correct display of icons
+    cifs-utils # SMB shares
+    fzf # fuzzy finder
+    lsof # Tool to list open files
+    psmisc # utils
+    
     lazygit # Graphical interface for git
-    wl-clipboard # Clipboard manager for wayland
-    clipnotify # Notify when clipboard changes
-    inotify-tools # Notify when file changes
-    # installs python with spesified packages
-    # (python311.withPackages (ps: with ps; [
-    #   numpy # these two are
-    #   scipy # probably redundant to pandas
-    #   jupyterlab
-    #   pandas
-    #   statsmodels
-    #   #scikitlearn
-    # ]))
-    #test
+
+    yazi    # Terminal-based filebrowser
+
+    megacmd # Cloud sync with MEGA drive
+
     # installs libreoffice and spellcheck
     libreoffice-qt
     hunspell
     hunspellDicts.nb_NO
 
-  #  hyprlock
-    #  mako
-    swayimg # Image viewer
-    swww  # Setting wallpapers
-    konsole
-    wlr-randr 
-    copyq # Clipboard manager
-    xfce.thunar 
-    xterm
-    dolphin
-    ranger  # Terminal-based filebrowser (can be replaced by cfile if i compile it)
-    nnn     # Terminal-based filebrowser 
-    yazi    # Terminal-based filebrowser
-    openscad-unstable # parametric 3d modeler
-    megacmd # Cloud sync with MEGA drive
-    # megatools # Cloud sync with MEGA drive
-    nerdfonts # Iconfont for correct display of icons
-    cifs-utils # SMB shares
-    psmisc # utils
-    fzf # fuzzy finder
-    lsof # Tool to list open files
+    openscad-unstable # parametric 3D-modeler
     orca-slicer # Slices files for 3D-printing 
   ];
 
