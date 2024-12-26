@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [
-    ../common/configuration.nix
+    ../../common/configuration/configuration.nix
   ];
 
   # Install wmware-tools
@@ -13,4 +13,5 @@
    device = ".host:/OneDrive";
    fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
    options = [ "umask=22" "allow_other" "auto_unmount" "uid=1000" "gid=100" "defaults" ]; 
-}   
+  };
+}

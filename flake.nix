@@ -26,7 +26,7 @@
         specialArgs = { inherit inputs; };
         modules = [
 
-          ./wmhyprland/configuration/configuration.nix
+          ./vmhyprland/configuration/configuration.nix
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
@@ -37,7 +37,7 @@
             home-manager.sharedModules = [
                 nixvim.homeManagerModules.nixvim
             ];
-            home-manager.users.nixos = import ./common/home/home.nix; 
+            home-manager.users.nixos = import ./vmhyprland/home/home.nix; 
             home-manager.users.root = import ./common/home/sudo.nix; # home manager stateversion and config for programs that are usaually used with sudo
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
