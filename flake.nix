@@ -21,7 +21,7 @@
   outputs = { nixpkgs, unstable, home-manager, nixvim, ... } @inputs: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
-      nixos = nixpkgs.lib.nixosSystem {
+      vmhyprland = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
@@ -44,6 +44,7 @@
           inputs.stylix.nixosModules.stylix
         ];
       };
+
     };
   };
 }
