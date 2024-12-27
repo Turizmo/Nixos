@@ -21,19 +21,20 @@
 
 
   # Install wmware-tools
-  virtualisation.vmware.guest.enable = true;
+  # virtualisation.vmware.guest.enable = true;
 
   # mount vmware shared folder at boot
-  system.fsPackages = [ pkgs.open-vm-tools ];
-  fileSystems."/mnt/hgfs" = {  # the location where the shared folder is mounted
-   device = ".host:/OneDrive"; # the configured name of the shared folder in wmware
-   fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
-   options = [ "umask=22" "allow_other" "auto_unmount" "uid=1000" "gid=100" "defaults" ]; 
-  };
+  # system.fsPackages = [ pkgs.open-vm-tools ];
+  # fileSystems."/mnt/hgfs" = {  # the location where the shared folder is mounted
+  #  device = ".host:/OneDrive"; # the configured name of the shared folder in wmware
+  #  fsType = "fuse./run/current-system/sw/bin/vmhgfs-fuse";
+  #  options = [ "umask=22" "allow_other" "auto_unmount" "uid=1000" "gid=100" "defaults" ]; 
+  # };
 
-   services.xserver = {
-    enable = true; 
-    videoDrivers = [ "vmware" ];
+  services.xserver = {
+    enable = true;
+    displayManager.lightdm.enable = true;
+    # videoDrivers = [ "vmware" ];
     windowManager.qtile = {
       enable = true;
     };
