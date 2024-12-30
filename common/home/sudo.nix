@@ -1,7 +1,7 @@
 { ... }:
 {	
   imports = [ 
-    ./nixvim.nix	# Install and configure neovim editor
+    ./nixvim/nixvim.nix	# Install and configure neovim editor
   ];
     
   #Enable and configure micro editor

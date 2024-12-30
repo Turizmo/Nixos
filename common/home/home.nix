@@ -18,6 +18,15 @@
       cifs-utils # SMB shares
       lsof # Tool to list open files
       psmisc # utils
+
+      # tools for yazi
+      ffmpegthumbnailer # preview of multimedia files
+      ffmpeg # playback of multimedia files
+      poppler # PDF viewer
+      imagemagick # Terminal image editor/converter
+      p7zip # 7-zip Archiver
+
+
       
       megacmd # Cloud sync with MEGA drive. Login command: mega-login username password. Sync command: mega-sync local-repository remote-repository
 
@@ -35,8 +44,15 @@
 
   programs = {
     alacritty.enable = true; # Terminal emulatior
-    yazi.enable = true;  # Terminal-based filebrowser
-    fzf.enable = true; # Fuzzy finder
+    yazi = { # Terminal-based filebrowser
+      enable = true;
+
+    };
+    fd.enable = true; # Rearch
+    ripgrep.enable = true; # Regex search    
+    fzf.enable = true; # Fuzzy search
+    zoxide.enable = true; # Navigate to frequently used directories
+    jq.enable = true; # Terminal JSON processor
 
     lazygit.enable = true; # GUI for git
     git = { # File versioning system
