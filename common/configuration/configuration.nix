@@ -99,6 +99,9 @@
    # Install firefox.
   programs.firefox.enable = true;
 
+  # Set the default editor
+  environment.variables.EDITOR = "nvim";
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

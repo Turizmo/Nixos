@@ -15,7 +15,7 @@
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
+  # Before changing this value read the documentation for this optionsd
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
 
@@ -31,19 +31,34 @@
   #  options = [ "umask=22" "allow_other" "auto_unmount" "uid=1000" "gid=100" "defaults" ]; 
   # };
 
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    # videoDrivers = [ "vmware" ];
-    windowManager.qtile = {
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.lightdm.enable = true;
+       videoDrivers = [ "vmware" ];
+      windowManager.qtile = {
+        enable = true;
+      };
+    };
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = myUserName; 
+      };
+    };
+    autorandr = {
       enable = true;
     };
   };
 
+  virtualisation.virtualbox.guest.enable = true;
 
-  # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = myUserName; 
+ environment.systemPackages = with pkgs; [
+      adwaita-qt
+   ];
 
+environment.sessionVariables = {
+QT_STYLE_OVERRIDE = "adwaita-dark";
+};
 
 }

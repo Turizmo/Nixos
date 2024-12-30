@@ -21,7 +21,6 @@
     
     lazygit # Graphical interface for git
 
-    yazi    # Terminal-based filebrowser
 
     megacmd # Cloud sync with MEGA drive
 
@@ -35,6 +34,10 @@
   ];
 
   fonts.fontconfig.enable = true;
+
+  programs.alacritty.enable = true; # Terminal emulatior
+  
+  programs.yazi.enable = true;  # Terminal-based filebrowser
 
   programs.git = {	
     enable = true;

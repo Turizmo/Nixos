@@ -6,7 +6,6 @@
   ];
 
   programs.wofi.enable = true;
-  programs.alacritty.enable = true;
   programs.waybar.enable = true;
   services.swaync.enable = true;
   #programs.hyprlock.enable = true;

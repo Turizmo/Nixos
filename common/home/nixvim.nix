@@ -9,8 +9,9 @@
 
   programs.nixvim = {
     enable = true;
+    defaultEditor = true;
     colorschemes.catppuccin = { # theme must be set here in addition to stylix, otherwise syntax highlighting does not work properly
-      enable = true; 
+      enable = true;
       settings = {
         flavour = "mocha";
         transparent_background = true;
@@ -40,5 +41,6 @@
       autoindent = false;
       cindent = false;
     };
+  
   };
 }

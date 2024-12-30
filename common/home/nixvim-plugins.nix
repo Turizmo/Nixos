@@ -16,9 +16,9 @@
       enable = true;
       settings = { 
         api_key_cmd = "echo $OPENAI_API_KEY"; # Fetches api key from environment variable. The variable needs to be set on every user. Set the variable with this command: echo "export OPENAI_API_KEY='yourkey'" >> ~/.bash_profile
-         openai_params = {
-          model = "gpt-4o-mini"; #gpt-4o-mini is the cheapest model at this time
-          max_tokens = 300;	# Limit tokens in case the model starts blabbering on.
+          openai_params = {
+            model = "gpt-4o-mini"; #gpt-4o-mini is the cheapest model at this time
+            max_tokens = 300;	# Limit tokens in case the model starts blabbering on.
         };
         openai_edit_params = {
           model = "gpt-4o-mini";  # gpt-4o-mini is the cheapest model at this time
@@ -36,6 +36,14 @@
         indent = {
           enable = true;
         };
+      };
+    };
+    lsp = {  # Autocompletion etc.
+      enable = true;
+      servers = {
+        nixd.enable = true;
+        pyright.enable = true;
+        openscad_lsp.enable = true;
       };
     };
 
@@ -66,7 +74,7 @@
         override_editorconfig = true;
       };
     };
-    comment = {
+    comment = { # Shortcuts for commenting
        enable = true;
      };
   };
