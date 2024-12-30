@@ -19,7 +19,7 @@
       lsof # Tool to list open files
       psmisc # utils
       
-      megacmd # Cloud sync with MEGA drive
+      megacmd # Cloud sync with MEGA drive. Login command: mega-login username password. Sync command: mega-sync local-repository remote-repository
 
       # installs libreoffice and spellcheck
       libreoffice-qt
