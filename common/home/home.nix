@@ -46,9 +46,15 @@
     alacritty.enable = true; # Terminal emulatior
     yazi = { # Terminal-based filebrowser
       enable = true;
+      initLua = ./yazi_init.lua;
+      settings = {
+        manager = {
+          show_hidden = true;
+        };
+      };
 
     };
-    fd.enable = true; # Rearch
+    fd.enable = true; # Search
     ripgrep.enable = true; # Regex search    
     fzf.enable = true; # Fuzzy search
     zoxide.enable = true; # Navigate to frequently used directories
