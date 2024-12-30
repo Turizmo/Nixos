@@ -1,4 +1,4 @@
- {config, pkgs, lib, inputs, ... }:
+ { ... }:
 { # Plugins for neovim
   programs.nixvim.plugins = {
     lazygit.enable = true;   # LazyGit integration

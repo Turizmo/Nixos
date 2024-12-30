@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, ... }:
+{ ... }:
 {
   imports= [
     ./nixvim-lua.nix # Custom keybindings and LUA configuration of neovim

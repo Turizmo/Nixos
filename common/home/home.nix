@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, myUserName, ... }:
+{pkgs, myUserName, ... }:
 {	
   imports = [ 
     ./sudo.nix # Import configuration that is also used for sudo programs

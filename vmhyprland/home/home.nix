@@ -1,4 +1,4 @@
-{config, pkgs, lib, inputs, myUserName, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ../../common/home/home.nix

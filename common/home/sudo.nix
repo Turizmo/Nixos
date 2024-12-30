@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {	
   imports = [ 
     ./nixvim.nix	# Install and configure neovim editor
