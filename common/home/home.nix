@@ -50,6 +50,7 @@
   # Copy the the public key(~/.ssh/id_rsa.pub) into github (profile -> settings -> SSH and GPG keys -> New SSH key)
   # NB! Never share the private key(~/.ssh/id_rsa)
   # Add the private key to the ssh agent by running this command in the terminal: ssh-add ~/.ssh/id_rsa
+  # Check current orginin with: git remote -v, if it retruns something like https://github.com/Username/repo, you need to set origin to SSH. 
+  # Set origin to SSH with this command: git remote set-url origin git@github.com:username/repo.git
   # The first push must be done in the terminal afterwards you can use lazygit
-  
 }
