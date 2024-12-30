@@ -53,12 +53,8 @@
 
   virtualisation.virtualbox.guest.enable = true;
 
- environment.systemPackages = with pkgs; [
-      adwaita-qt
-   ];
-
-environment.sessionVariables = {
-QT_STYLE_OVERRIDE = "adwaita-dark";
-};
+  # Set darkmode for qt applications
+  environment.systemPackages = with pkgs; [adwaita-qt];
+  environment.sessionVariables = {QT_STYLE_OVERRIDE = "adwaita-dark";};
 
 }
