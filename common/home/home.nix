@@ -5,44 +5,45 @@
     ./get-wallpaper.nix # Fetch wallpaper from wallhaven
   ];
 
-  home.username = myUserName;
-  home.homeDirectory = "/home/${myUserName}";
-
-
-
-  home.packages = with pkgs; [
-    # tools
-    ncdu # Disk usage analazyer
-    nerdfonts # Iconfont for correct display of icons
-    cifs-utils # SMB shares
-    fzf # fuzzy finder
-    lsof # Tool to list open files
-    psmisc # utils
-    
-    lazygit # Graphical interface for git
-
-
-    megacmd # Cloud sync with MEGA drive
-
-    # installs libreoffice and spellcheck
-    libreoffice-qt
-    hunspell
-    hunspellDicts.nb_NO
-
-    openscad-unstable # parametric 3D-modeler
-    orca-slicer # Slices files for 3D-printing 
-  ];
-
   fonts.fontconfig.enable = true;
 
-  programs.alacritty.enable = true; # Terminal emulatior
-  
-  programs.yazi.enable = true;  # Terminal-based filebrowser
+  home = {
+    username = myUserName;
+    homeDirectory = "/home/${myUserName}";
 
-  programs.git = {	
-    enable = true;
-    userName = "Turizmo";
-    userEmail = "stianfoss.90+github@gmail.com";
+    packages = with pkgs; [
+      # tools
+      ncdu # Disk usage analazyer
+      nerdfonts # Iconfont for correct display of icons
+      cifs-utils # SMB shares
+      lsof # Tool to list open files
+      psmisc # utils
+      
+      megacmd # Cloud sync with MEGA drive
+
+      # installs libreoffice and spellcheck
+      libreoffice-qt
+      hunspell
+      hunspellDicts.nb_NO
+
+      openscad-unstable # parametric 3D-modeler
+      orca-slicer # Slices files for 3D-printing 
+      
+      qmk # Firmware for keyboards
+    ];
+  };
+
+  programs = {
+    alacritty.enable = true; # Terminal emulatior
+    yazi.enable = true;  # Terminal-based filebrowser
+    fzf.enable = true; # Fuzzy finder
+
+    lazygit.enable = true; # GUI for git
+    git = { # File versioning system
+      enable = true;
+      userName = "Turizmo";
+      userEmail = "stianfoss.90+github@gmail.com";
+    };
   };
   # For pushing to github you need to configure an SSH key manually
   # Check if you already have a generated key by lookin for this file: ~/.ssh/id_rsa.pub
