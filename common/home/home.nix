@@ -39,33 +39,12 @@
       orca-slicer # Slices files for 3D-printing 
       
       qmk # Firmware for keyboards
+
+      openhantek6022 # Software for oscilloscope
     ];
   };
 
   programs = {
-    alacritty.enable = true; # Terminal emulatior
-    yazi = { # Terminal-based filebrowser
-      enable = true;
-      initLua = ./yazi_init.lua;
-      keymap = {
-        manager.prepend_keymap = [
-          {  on = [ "m" "m" ]; run = "linemode mtimev2"; desc = "Set linemode to modified time"; }
-          {  on = [ "m" "c" ]; run = "linemode ctimev2"; desc = "Set linemode to created time"; }
-        ];
-      };
-      settings = {
-        manager = {
-          show_hidden = true;
-        };
-      };
-
-    };
-    fd.enable = true; # Search
-    ripgrep.enable = true; # Regex search    
-    fzf.enable = true; # Fuzzy search
-    zoxide.enable = true; # Navigate to frequently used directories
-    jq.enable = true; # Terminal JSON processor
-
     lazygit.enable = true; # GUI for git
     git = { # File versioning system
       enable = true;
