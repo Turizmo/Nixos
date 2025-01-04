@@ -116,6 +116,17 @@
     udisks2.enable = true;
     devmon.enable = true;
   };
+services.udev.extraRules = ''
+# rules for OpenHantek6022 (DSO program) as well as Hankek6022API (python tools)
+ACTION!="add|change", GOTO="openhantek_rules_end"
+SUBSYSTEM!="usb|usbmisc|usb_device", GOTO="openhantek_rules_end"
+ENV{DEVTYPE}!="usb_device", GOTO="openhantek_rules_end"
+
+# Hantek DSO-6022BE, without FW, with FW
+ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="6022", TAG+="uaccess", TAG+="udev-acl", MODE="660", GROUP="plugdev"
+ATTRS{idVendor}=="04b5", ATTRS{idProduct}=="6022", TAG+="uaccess", TAG+="udev-acl", MODE="660", GROUP="plugdev"
+LABEL="openhantek_rules_end"
+'';
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
