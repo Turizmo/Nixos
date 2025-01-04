@@ -2,24 +2,10 @@
 {	
   imports = [ 
     ./nixvim/nixvim.nix	# Install and configure neovim editor
+    ./yazi.nix # Install and configure yazi directory navigator
   ];
   programs = {
     alacritty.enable = true; # Terminal emulatior
-    yazi = { # Terminal-based filebrowser
-      enable = true;
-      initLua = ./yazi_init.lua;
-      keymap = {
-        manager.prepend_keymap = [
-          {  on = [ "m" "m" ]; run = "linemode mtimev2"; desc = "Set linemode to modified time"; }
-          {  on = [ "m" "c" ]; run = "linemode ctimev2"; desc = "Set linemode to created time"; }
-        ];
-      };
-      settings = {
-        manager = {
-          show_hidden = true;
-        };
-      };
-    };
     fd.enable = true; # Search
     ripgrep.enable = true; # Regex search    
     fzf.enable = true; # Fuzzy search
