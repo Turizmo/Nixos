@@ -1,5 +1,8 @@
  { config, pkgs, ... }:
 {
+  imports = [
+     ./yazi_wrapper.nix
+   ];
   programs = {
     yazi = { # Terminal-based filebrowser
       enable = true;
@@ -15,24 +18,25 @@
           show_hidden = true;
         };
       };
+      shellWrapperName = "y";
     };
   };
 
-  home.packages = with pkgs; [
-    (pkgs.writeShellScriptBin "yazi-wrapper" ''
-      function y() {
-          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-          yazi "$@" --cwd-file="$tmp"
-          if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-              builtin cd -- "$cwd"
-          fi
-          rm -f -- "$tmp"
-      }
-      y "$@"
-    '')
-  ];
-
-  home.sessionVariables = {
-    PATH = "${config.home.homeDirectory}/.nix-profile/bin:${config.home.sessionVariables.PATH}";
-  };
+  # home.packages = with pkgs; [
+  #   (pkgs.writeShellScriptBin "yazi-wrapper" ''
+  #     function y() {
+  #         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  #         yazi "$@" --cwd-file="$tmp"
+  #         if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+  #             builtin cd -- "$cwd"
+  #         fi
+  #         rm -f -- "$tmp"
+  #     }
+  #     y "$@"
+  #   '')
+  # ];
+  #
+  # home.sessionVariables = {
+  #   PATH = "${config.home.homeDirectory}/.nix-profile/bin:${config.home.sessionVariables.PATH}";
+  # };
 }

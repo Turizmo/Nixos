@@ -9,7 +9,9 @@
 
     # Enable networking
     networking.networkmanager.enable = true;
-
+    networking.networkmanager.dns = "none";
+    networking.nameservers = ["8.8.8.8" "8.8.4.4"];
+    
     # Set your time zone.
     time.timeZone = "Europe/Oslo";
 
