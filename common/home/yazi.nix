@@ -1,42 +1,32 @@
  { config, pkgs, ... }:
 {
-  imports = [
-     ./yazi_wrapper.nix
-   ];
   programs = {
-    yazi = { # Terminal-based filebrowser
+    yazi = { # Terminal-based filebrowser (open by typing yy in the terminal)
       enable = true;
       initLua = ./yazi_init.lua;
       keymap = {
         manager.prepend_keymap = [
-          {  on = [ "m" "m" ]; run = "linemode mtimev2"; desc = "Set linemode to modified time"; }
-          {  on = [ "m" "c" ]; run = "linemode ctimev2"; desc = "Set linemode to created time"; }
+          {  on = [ "m" "m" ]; run = "linemode mtimev2"; desc = "Set linemode to modified time"; } # custom linemode to show time in iso format
+          {  on = [ "m" "c" ]; run = "linemode ctimev2"; desc = "Set linemode to created time"; }# custom linemode to show time in iso format
         ];
       };
       settings = {
         manager = {
           show_hidden = true;
         };
-      };
-      shellWrapperName = "y";
+    };
+     };
+    bash = {
+      enable = true; # bash need to be enabled to create the bashrc file so the yy command can be used to open yazi
+    };
+  };  
+  xdg.mimeApps = {
+    enable = true;
+    associations.added = {
+      "text/csv" = ["libreoffice-calc.desktop"];
+    };
+    defaultApplications = {
+      "text/csv" = ["libreoffice-calc.desktop"];
     };
   };
-
-  # home.packages = with pkgs; [
-  #   (pkgs.writeShellScriptBin "yazi-wrapper" ''
-  #     function y() {
-  #         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  #         yazi "$@" --cwd-file="$tmp"
-  #         if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-  #             builtin cd -- "$cwd"
-  #         fi
-  #         rm -f -- "$tmp"
-  #     }
-  #     y "$@"
-  #   '')
-  # ];
-  #
-  # home.sessionVariables = {
-  #   PATH = "${config.home.homeDirectory}/.nix-profile/bin:${config.home.sessionVariables.PATH}";
-  # };
 }
