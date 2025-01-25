@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {	
   imports = [ 
     ./nixvim/nixvim.nix	# Install and configure neovim editor
@@ -16,7 +16,7 @@
     micro = {
       enable = true;
       settings = {
-        "colorscheme" = "darcula";
+        "colorscheme" = lib.mkForce "darcula";
         "tabsize" = 2;
         "softwrap" = true;
       };
