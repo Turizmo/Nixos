@@ -11,6 +11,7 @@
     fzf.enable = true; # Fuzzy search
     zoxide.enable = true; # Navigate to frequently used directories
     jq.enable = true; # Terminal JSON processor
+    tealdeer.enable = true;
 
     #Enable and configure micro editor
     micro = {
