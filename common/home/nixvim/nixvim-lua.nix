@@ -10,7 +10,8 @@
       vim.api.nvim_set_keymap('n', '<Leader>w', ':wa<CR>', { noremap = true, silent = false }) 		-- Map write file.
       vim.api.nvim_set_keymap('n', '<Leader>q', ':NvimTreeClose|:q<CR>', { noremap = true, silent = false }) 	-- Map quit.
       vim.api.nvim_set_keymap('n', '<Leader>t', ':NvimTreeFocus<CR>', { noremap = true, silent = false }) 	-- Map TreeToggle.
-      vim.api.nvim_set_keymap('n', '<Leader>g', ':LazyGit<CR>', { noremap = true, silent = false }) 	-- Map TreeToggle.
+      vim.api.nvim_set_keymap('n', '<Leader>g', ':LazyGit<CR>', { noremap = true, silent = false }) 	-- Map LazyGit.
+      vim.api.nvim_set_keymap('n', '<Leader>o', ':!openscad % &<CR>', { noremap = true, silent = true }) 	-- Map Openscad.
     '';
   };
 }

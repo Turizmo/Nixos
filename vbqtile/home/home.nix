@@ -6,10 +6,9 @@
 
   home.packages = with pkgs; [
     xclip # Enables global clipbard
-    # rofi # Application launhcer
   ];
 
   programs = {
-    rofi.enable = true;
+    rofi.enable = true; # Application launhcer
   };  
 }   

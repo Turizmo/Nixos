@@ -18,6 +18,7 @@
       cifs-utils # SMB shares
       lsof # Tool to list open files
       psmisc # utils
+      xfce.thunar # file navigator
 
       # tools for yazi
       ffmpegthumbnailer # preview of multimedia files
@@ -37,7 +38,7 @@
 
       openscad-unstable # parametric 3D-modeler
       orca-slicer # Slices files for 3D-printing 
-      
+        
       qmk # Firmware for keyboards
 
       openhantek6022 # Software for oscilloscope
