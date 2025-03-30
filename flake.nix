@@ -16,6 +16,7 @@
       url = "github:danth/stylix/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # bosl2.url = "github:BelfrySCAD/BOSL2";
   };
 
   outputs = { self, nixpkgs, unstable, home-manager, nixvim, stylix, ... } @ inputs: 

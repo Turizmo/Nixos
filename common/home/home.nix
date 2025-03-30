@@ -1,4 +1,4 @@
-{pkgs, myUserName, ... }:
+{pkgs, lib, config, myUserName, ... }:
 {	
   imports = [ 
     ./sudo.nix # Import configuration that is also used for sudo programs
@@ -27,7 +27,7 @@
       imagemagick # Terminal image editor/converter
       p7zip # 7-zip Archiver
 
-
+      openssl
       
       megacmd # Cloud sync with MEGA drive. Login command: mega-login username password. Sync command: mega-sync local-repository remote-repository
 
@@ -37,13 +37,20 @@
       hunspellDicts.nb_NO
 
       openscad-unstable # parametric 3D-modeler
+
       orca-slicer # Slices files for 3D-printing 
         
       qmk # Firmware for keyboards
 
       openhantek6022 # Software for oscilloscope
+      git
     ];
   };
+
+  home.activation.bosl2 = lib.hm.dag.entryAfter [ "writeBoundary" "installPackages" "git" ] ''
+     PATH="${config.home.path}/bin:$PATH" run git clone https://github.com/BelfrySCAD/BOSL2.git ${config.home.homeDirectory}/.local/share/OpenSCAD/libraries/BOSL2
+  '';
+
 
   programs = {
     lazygit.enable = true; # GUI for git
