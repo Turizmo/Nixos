@@ -26,8 +26,11 @@
       poppler # PDF viewer
       imagemagick # Terminal image editor/converter
       p7zip # 7-zip Archiver
+      (python3.withPackages (ps: with ps; [ 
+        numpy # Math stuff
+        ha-decrypt-backup-tool # Homeassistant decrypton tool
+      ]))
 
-      openssl
       
       megacmd # Cloud sync with MEGA drive. Login command: mega-login username password. Sync command: mega-sync local-repository remote-repository
 
