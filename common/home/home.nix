@@ -28,7 +28,10 @@
       p7zip # 7-zip Archiver
       (python3.withPackages (ps: with ps; [ 
         numpy # Math stuff
-        ha-decrypt-backup-tool # Homeassistant decrypton tool
+        pip # Package manager for python
+        jupyter # Interactive python notebook
+        pandas # Data manipulation
+        mathplotlib # Graphs etc.
       ]))
 
       
@@ -50,6 +53,7 @@
     ];
   };
 
+  # BOSL2 OpenSCAD library
   home.activation.bosl2 = lib.hm.dag.entryAfter [ "writeBoundary" "installPackages" "git" ] ''
      PATH="${config.home.path}/bin:$PATH" run git clone https://github.com/BelfrySCAD/BOSL2.git ${config.home.homeDirectory}/.local/share/OpenSCAD/libraries/BOSL2
   '';
