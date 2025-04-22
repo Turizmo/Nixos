@@ -31,7 +31,7 @@
         pip # Package manager for python
         jupyter # Interactive python notebook
         pandas # Data manipulation
-        mathplotlib # Graphs etc.
+        matplotlib # Graphs etc.
       ]))
 
       
