@@ -32,6 +32,7 @@
         jupyter # Interactive python notebook
         pandas # Data manipulation
         matplotlib # Graphs etc.
+        tabulate # Nice tables 
       ]))
 
       

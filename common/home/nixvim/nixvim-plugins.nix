@@ -99,5 +99,9 @@
     comment = { # Shortcuts for commenting
        enable = true;
      };
+
+    molten = { # Interactive python
+       enable = true;
+     };
   };
 }
