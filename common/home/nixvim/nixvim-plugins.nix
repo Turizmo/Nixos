@@ -100,8 +100,8 @@
        enable = true;
      };
 
-    molten = { # Interactive python
-       enable = true;
-     };
+    # molten = { # Interactive python, not sure how to create a python session
+    #    enable = true;
+    #  };
   };
 }
