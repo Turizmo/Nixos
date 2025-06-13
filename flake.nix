@@ -31,8 +31,8 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; inherit myUserName; };
-              home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];  
+              home-manager.extraSpecialArgs = { inherit inputs; inherit myUserName;};
+            # home-manager.sharedModules = [ nixvim.homeManagerModules.nixvim ];  
               home-manager.users.${myUserName} = import ./${myHostName}/home/home.nix;
               home-manager.users.root = import ./common/home/sudo.nix;
             }

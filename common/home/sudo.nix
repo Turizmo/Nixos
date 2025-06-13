@@ -1,7 +1,7 @@
 { lib, ... }:
 {	
   imports = [ 
-    ./nixvim/nixvim.nix	# Install and configure neovim editor
+    #   ./nixvim/nixvim.nix	# Install and configure neovim editor
     ./yazi.nix # Install and configure yazi directory navigator
   ];
   programs = {
@@ -12,6 +12,11 @@
     zoxide.enable = true; # Navigate to frequently used directories
     jq.enable = true; # Terminal JSON processor
     tealdeer.enable = true;
+
+    neovim = {  
+      enable = true;
+    };
+    
 
     #Enable and configure micro editor
     micro = {

@@ -45,6 +45,8 @@
 
       openscad-unstable # parametric 3D-modeler
 
+      inkscape-with-extensions # Edit Vector graphics
+
       orca-slicer # Slices files for 3D-printing 
         
       qmk # Firmware for keyboards

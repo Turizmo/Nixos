@@ -92,7 +92,7 @@
   users.users.nixos = {
     isNormalUser = true;
     description = "NixOS";
-    extraGroups = [ "networkmanager" "wheel" "vboxsf" ];   # vboxsf is only reqired for virtual shared folders on guests
+    extraGroups = [ "networkmanager" "wheel" "vboxsf" "dialout"];   # vboxsf is only reqired for virtual shared folders on guests
     packages = with pkgs; [
     #  thunderbird
     ];
@@ -128,6 +128,9 @@ ENV{DEVTYPE}!="usb_device", GOTO="openhantek_rules_end"
 ATTRS{idVendor}=="04b4", ATTRS{idProduct}=="6022", TAG+="uaccess", TAG+="udev-acl", MODE="660", GROUP="plugdev"
 ATTRS{idVendor}=="04b5", ATTRS{idProduct}=="6022", TAG+="uaccess", TAG+="udev-acl", MODE="660", GROUP="plugdev"
 LABEL="openhantek_rules_end"
+
+# Arduino pro micro
+# SUBSYSTEM=="usb", ATTRS{idVendor}=="0036", ATTRS{idProduct}=="2341", MODE="0666", GROUP="dialout"
 '';
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
